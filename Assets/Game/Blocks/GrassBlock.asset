@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c1ead1a8144834a86ce2f4b9fc96f9, type: 3}
+  m_Name: GrassBlock
+  m_EditorClassIdentifier: 
+  blockId: grass
+  blockName: Grass
+  isSolid: 1
+  isTransparent: 0
+  isCollidable: 1
+  textures:
+    topTexture: {fileID: 2800000, guid: 5fbc5d273d53e3f40a7a0c120f568cb3, type: 3}
+    bottomTexture: {fileID: 2800000, guid: 2768b1d270d05214dbd89fd2292cbb26, type: 3}
+    sideTexture: {fileID: 2800000, guid: 9f7778d6b089aeb4eafe851d94733d6d, type: 3}
