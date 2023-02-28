@@ -6,8 +6,8 @@ namespace Minecraft {
         public float speed = 10.0f;
         [SerializeField]
         public float mouseSensitivity = 4.0f;
-        
         private float rotX; // rotation around the right/x axis
+
         private float rotY; // rotation around the up/y axis
 
         private void Start() {

@@ -5,8 +5,7 @@ using UnityEngine;
 namespace Minecraft.World.Biome {
     [RequireComponent(typeof(DomainWarping))]
     public class StoneLayerHandler : BlockLayerHandler {
-        [Range(0, 1)]
-        [SerializeField] private float stoneThreshold = 0.5f;
+        [Range(0, 1)][SerializeField] private float stoneThreshold = 0.5f;
 
         [SerializeField] private NoiseSettings stoneNoiseSettings;
 

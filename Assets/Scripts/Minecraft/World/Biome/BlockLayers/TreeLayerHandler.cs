@@ -22,8 +22,10 @@ namespace Minecraft.World.Biome {
             return false;
         }
 
+        // TODO: Move this to a separate class (structure generator)
         private void GenerateTree(ChunkData chunkData, Vector3Int groundBlockPosition) {
-            int trunkHeight = 4;
+            // TODO: Add randomization for trunk height (min, max)
+            int trunkHeight = 5;
 
             // Generate trunk
             for (int y = 1; y <= trunkHeight; y++) {

@@ -51,6 +51,9 @@ namespace Minecraft.Texture {
 
             byte[] bytes = texture.EncodeToPNG();
             File.WriteAllBytes(path + ".png", bytes);
+            
+            // Clear tile textures
+            tileTextures.Clear();
         }
 
         private static void ClearTexture(Texture2D texture) {

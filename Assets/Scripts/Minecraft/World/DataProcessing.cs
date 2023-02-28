@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Minecraft.World {
     public static class DataProcessing {
-        private readonly static List<Vector2Int> Directions = new List<Vector2Int> {
+        private static readonly List<Vector2Int> Directions = new List<Vector2Int> {
             new Vector2Int(0, 1),   // North
             new Vector2Int(1, 1),   // North-East
             new Vector2Int(1, 0),   // East

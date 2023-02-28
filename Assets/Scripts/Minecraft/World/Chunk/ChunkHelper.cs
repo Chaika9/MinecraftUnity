@@ -118,7 +118,8 @@ namespace Minecraft.World.Chunk {
                 WorldHelper.SetBlock(chunkData.World, localPosition + chunkData.WorldPosition, blockId, replace);
                 return;
             }
-
+            
+            // Convert the block id to short id (chunk block array only store short id)
             ushort shortBlockId = chunkData.World.BlockManager.ConvertToShortId(blockId);
             if (replace || chunkData.Blocks[GetIndexFromBlockLocalPosition(chunkData, localPosition)] == 0) {
                 chunkData.Blocks[GetIndexFromBlockLocalPosition(chunkData, localPosition)] = shortBlockId;

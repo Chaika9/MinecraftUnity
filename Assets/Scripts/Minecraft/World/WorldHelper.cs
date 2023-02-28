@@ -57,11 +57,16 @@ namespace Minecraft.World {
             world.WorldRenderer.RemoveChunkRenderer(chunkRenderer);
             world.WorldData.ChunkRenderers.Remove(chunkPosition);
         }
-
+        
+        /// <summary>
+        /// Removes the chunk data of the world at the given world position.
+        /// </summary>
+        /// <param name="world">The world.</param>
+        /// <param name="chunkPosition">The world position of the chunk.</param>
         public static void RemoveChunkData(World world, Vector3Int chunkPosition) {
             world.WorldData.ChunkDatas.Remove(chunkPosition);
         }
-
+        
         /// <summary>
         ///     Sets the block at the given world position.
         ///     Don't forget to call <see cref="ChunkRenderer.UpdateMesh()" /> after setting the block if you want to apply the

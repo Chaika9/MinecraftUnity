@@ -125,16 +125,16 @@ namespace Minecraft.World {
                 return;
             }
 
+            // Add new chunk data's to world data
+            foreach (KeyValuePair<Vector3Int, ChunkData> item in chunkDatas) {
+                WorldData.ChunkDatas.Add(item.Key, item.Value);
+            }
+            
             try {
                 await GenerateAdditionalChunkDatas(chunkDatas);
             } catch (OperationCanceledException) {
                 // If task is cancelled, return
                 return;
-            }
-
-            // Add new chunk data's
-            foreach (KeyValuePair<Vector3Int, ChunkData> item in chunkDatas) {
-                WorldData.ChunkDatas.Add(item.Key, item.Value);
             }
 
             // Select chunk data to render

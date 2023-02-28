@@ -84,8 +84,8 @@ namespace Minecraft.World.Chunk {
             // Update mesh collider
             meshCollider.sharedMesh = null;
             var collisionMesh = new Mesh {
-                vertices = chunkMeshData.ColliderVertices.ToArray(),
-                triangles = chunkMeshData.ColliderTriangles.ToArray()
+                vertices = chunkMeshData.ColliderVertices.Concat(chunkMeshData.TransparentMeshData.ColliderVertices).ToArray(),
+                triangles = chunkMeshData.ColliderTriangles.Concat(chunkMeshData.TransparentMeshData.ColliderTriangles).ToArray()
             };
             collisionMesh.RecalculateNormals();
             meshCollider.sharedMesh = collisionMesh;

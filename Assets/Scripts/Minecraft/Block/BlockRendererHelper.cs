@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Minecraft.Block {
     public static class BlockHelper {
-        private readonly static Direction[] Directions = {
+        private static readonly Direction[] Directions = {
             Direction.Up,
             Direction.Down,
             Direction.Right,

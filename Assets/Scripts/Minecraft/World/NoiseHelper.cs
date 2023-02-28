@@ -2,36 +2,39 @@ using UnityEngine;
 
 namespace Minecraft.World {
     public static class NoiseHelper {
-        public static float GetNoise(float x, float z, float offset, float scale) {
-            return Mathf.PerlinNoise((x + offset) * scale, (z + offset) * scale);
-        }
-
-        public static float OctavePerlin(float x, float z, NoiseSettings noiseSettings, int seed) {
+        public static float OctavePerlin(float x, float z, float scale, int octaves, Vector2Int offset, float persistence, int seed) {
             // Apply scale
-            x *= noiseSettings.scale;
-            z *= noiseSettings.scale;
-            x += noiseSettings.scale;
-            z += noiseSettings.scale;
+            x *= scale;
+            z *= scale;
+            x += scale;
+            z += scale;
 
             float total = 0;
             float frequency = 1;
             float amplitude = 1;
             float maxValue = 0; // Used for normalizing result to 0.0 - 1.0
-            for (int i = 0; i < noiseSettings.octaves; i++) {
-                total += Mathf.PerlinNoise((x + noiseSettings.offset.x + seed) * frequency,
-                    (z + noiseSettings.offset.y + seed) * frequency) * amplitude;
+            for (int i = 0; i < octaves; i++) {
+                total += Mathf.PerlinNoise((x + offset.x + seed) * frequency,
+                    (z + offset.y + seed) * frequency) * amplitude;
 
                 maxValue += amplitude;
 
-                amplitude *= noiseSettings.persistence;
+                amplitude *= persistence;
                 frequency *= 2;
             }
-
             return total / maxValue;
         }
 
+        public static float OctavePerlin(float x, float z, NoiseSettings noiseSettings, int seed) {
+            return OctavePerlin(x, z, noiseSettings.scale, noiseSettings.octaves, noiseSettings.offset, noiseSettings.persistence, seed);
+        }
+        
+        public static float Redistribute(float value, float redistribution, float exponent) {
+            return Mathf.Pow(value * redistribution, exponent);
+        }
+
         public static float Redistribute(float value, NoiseSettings noiseSettings) {
-            return Mathf.Pow(value * noiseSettings.redistribution, noiseSettings.exponent);
+            return Redistribute(value, noiseSettings.redistribution, noiseSettings.exponent);
         }
 
         public static float RemapValue(float value, float initialMin, float initialMax, float finalMin, float finalMax) {
